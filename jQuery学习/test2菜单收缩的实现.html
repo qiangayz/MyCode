@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .head{
+            background-color: #2f96b4;
+            color: red;
+        }
+        .content{
+            min-height: 80px;
+            background-color: green;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 400px;width: 200px;border: 1px solid #DDDDDD">
+        <div class="item">
+            <div class="head">标题1</div>
+            <div id="i1" class="content hide">内容1</div>
+        </div>
+        <div class="item">
+            <div class="head">标题2</div>
+            <div id="i2" class="content hide">内容1</div>
+        </div>
+        <div class="item">
+            <div class="head">标题3</div>
+            <div id="i3" class="content hide">内容1</div>
+        </div>
+        <div class="item">
+            <div class="head">标题4</div>
+            <div id="i4" class="content hide">内容1</div>
+        </div>
+    </div>
+<script src="jquery.js"></script>
+<script>
+    $('.head').click(function () {
+        $(this).next().removeClass('hide').parent().siblings().find('.content').addClass('hide');
+        // 当前点击的标签 $(this)
+            // 获取某个标签的下一个标签
+            // 获取某个标签的父标签
+            // 获取所有的兄弟标签
+            // 添加样式和移除样式
+            // $('.i1').addClass('hide')
+            // $('#i1').removeClass('hide')
+            // var v = $("this + div");
+            // $("label + input")
+            // console.log(v);
+            //
+            // $("afsldkfja;skjdf;aksdjf")
+
+            // 筛选器
+            /*
+            $(this).next()      下一个
+            $(this).prev()      上一个
+            $(this).parent()    父
+            $(this).children()  孩子
+            $('#i1').siblings() 兄弟
+            $('#i1').find('#i1') 子子孙孙中查找
+            // . . .
+            //
+            $('#i1').addClass(..)
+            $('#i1').removeClass(..)
+            */
+
+            // 链式编程
+            // $(...).click(function(){
+            //     this..
+            // })
+
+
+//            $(this).next().removeClass('hide');
+//            $(this).parent().siblings().find('.content').addClass('hide')
+
+
+    })
+</script>
+</body>
+</html>

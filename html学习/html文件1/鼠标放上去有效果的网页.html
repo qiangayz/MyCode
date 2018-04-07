@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*固定到头部，右左上间距为0，高度为48像素背景色为蓝色*/
+        .pg-header{
+            position: fixed;
+            right: 0;
+            left: 0;
+            top: 0;
+            height: 48px;
+            background-color: dodgerblue;
+            line-height: 48px;
+        }
+        /*设置外边距为50像素*/
+        .pg-body{
+            margin-top: 50px;
+        }
+        /*宽度980像素*/
+        .w{
+            width: 980px;
+            /*浏览器会把这个标签放到中间如果使用margin的话*/
+            margin: 0 auto;
+        }
+        .pg-header .menu{
+            /*变成行内标签就可以设置高度了*/
+            display: inline-block;
+            /*上右下左间隔*/
+            padding: 0 10px 0 10px;
+            color: white;
+        }
+        /*当鼠标移动到当前标签上时，以下css属性才生效*/
+        .pg-header .menu:hover{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg-header">
+        <div class="w">
+            <a class="logo">BBU</a>
+            <a class="menu">RRU</a>
+            <a class="menu">CC</a>
+            <a class="menu">BPN</a>
+            <a class="menu">8852</a>
+        </div>
+    </div>
+    <div class="pg-body">
+        <div class="w">一直大乌鸦</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+1、基本的架子
+    float clear：both margin padding
+    如果需要指定一个东西在特定的位置就需要用到
+    position：
+        left：
+    如果不好看，可以在网上找模板
+    html模板，bootstrap（多在网上看模板）
+
+ 2、jquery是对DOM的封装
+
+ HTML
+    一大推标签：块级、行内
+
+  CSS
+    position
+    background
+    text-align 文字居中text-align: center;
+    margin
+    padding
+    font-size
+    z-index
+    :hover
+    opacity
+    float(clear:both)
+    line-height
+    border
+    color
+    display
+
+    补充：页面布局
+        主站布局：
+            <div>
+                <div style="width:980px;margin:0 auto">内容自动居中</div>
+            <div>
+            <div><div>
+            <div><div>
+        后台管理布局：
+            position
+                fiexd 永远固定在窗口的某个位置
+                relative 单独一个时候没有用
+                absolut 第一次可以定位到指定位置，滚轮动的时候不在(P标签默认有边距)
+            a、左侧菜单跟随滚动条
+            b、左侧菜单不动    （用的最多）使用absolute更方便与a和b的切换，
+
+
+    图标网站：http://fontawesome.dashgame.com/

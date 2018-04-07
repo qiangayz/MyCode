@@ -1,0 +1,199 @@
+<script src="jquery.js"></script>
+<script>
+jQuery
+    学习网址http://jquery.cuishifeng.cn/
+    模块 = 类库
+      对DOM、javaScript的类库
+      1、查找元素
+            Dom：
+                差不多10个左右
+             jQuery
+             px：
+                1.x   1.12  兼容性好
+                2.x
+                3.x
+                转换：
+                    jquery对象[0]  转换为Dom对象
+                    Dom对象  转换为jquery对象 $(Dom对象)
+            选择器
+            直接找到某个或者某类标签
+            1、id
+               $('#id')
+            2、class
+                <div class='c1'></div>
+                $('.c1')
+            3、标签
+                $('a')  找到所有的a标签
+            4.组合选择
+                $('a, .c1， div ，#12') 找到多个类型的标签
+            5、层级选择
+                $('#i1 a') 找i1下的所有a标签
+                $('#i1>a') 找i1下的a标签只找儿子层
+            6、基本
+                ：first
+                ：last
+                ：eq（）
+            7、属性
+                $('[asd]') 具有asd属性的所有标签
+                $('[asd=‘a12’]') asd属性等于a12的标签
+                <input type='text'/>
+				<input type='text'/>
+				<input type='file'/>
+				<input type='password'/>
+
+				$("input[type='text']")
+				$(':text')
+            实例：
+                多选，反选，全选
+				- 选择权
+				-
+					$('#tb:checkbox').prop('checked');        获取值
+					$('#tb:checkbox').prop('checked', true);  设置值
+				-
+					jQuery方法内置循环： $('#tb:checkbox').xxxx
+
+				- $('#tb:checkbox').each(function(k){
+						// k当前索引
+						// this，DOM，当前循环的元素 $(this)
+
+					})
+				- var v = 条件 ? 真值 : 假值
+            筛选器:
+                $(this).next()      下一个
+                $('#i1').nextAll()
+				$('#i1').nextUntil('#ii1')
+                <div>
+					<a>asdf</a>
+					<a>asdf</a>
+					<a id='i1'>asdf</a>
+					<a>asdf</a>
+					<a id='ii1'>asdf</a>
+					<a>asdf</a>
+				</div>
+
+                $(this).prev()      上一个
+                $('#i1').prevAll()
+				$('#i1').prevUntil('#ii1')
+
+                $(this).parent()    父
+                $('#i1').parents() 祖宗
+				$('#i1').parentsUntil()
+
+                $(this).children()  孩子
+                $('#i1').siblings() 兄弟
+                $('#i1').find('#i1') 子子孙孙中查找
+
+                $('li:eq(1)')  获取匹配的指定元素
+				$('li').eq(1)
+				first()      获取匹配到的第一个元素
+				last()        获取匹配到的最后一个元素
+				hasClass(class)  是否含有某class
+            文本操作：
+                .text()
+                .text('设置的内容')
+                .html()
+                .html('设置的内容')
+                .val()
+                .val('设置的内容')
+            样式操作：
+                addClass
+                removeClass
+                toggleClass
+            属性操作：
+                #专门用于做自定义属性
+                .attr('name')
+                .removeattr('name')
+                .attr('name','za')
+                #专门用于chekbox，radio
+                .prop('checked')
+                .prop('checked',true)
+
+            ps:
+                index 获取索引位置
+
+            文档处理：
+                append
+                prepend
+                after
+                before
+                remove
+                empty 清空内容不清空标签
+                clone
+            CSS处理：
+                $(xx).css('color','red')
+                点赞：
+                    $(xx).append()
+                    $(xx).remove()
+                    setInterval()   定时器
+                    透明度
+                    position
+                    字体大小 位置
+
+            位置：
+			$(window).scrollTop()  获取
+			$(window).scrollTop(0) 设置
+			scrollLeft([val])
+			offset().left                 指定标签在html中的坐标
+			offset().top                  指定标签在html中的坐标
+			position() 	                  指定标签相对父标签(relative)标签的坐标
+			<div style='relative'>
+				<div>
+					<div id='i1' style='position:absolute;height:80px;border:1px'></div>
+				</div>
+			</div>
+
+			$('i1').height()           # 获取标签的高度 纯高度
+			$('i1').innerHeight()      # 获取边框 + 纯高度 + ？
+			$('i1').outerHeight()      # 获取边框 + 纯高度 + ？
+			$('i1').outerHeight(true)  # 获取边框 + 纯高度 + ？
+
+			# 纯高度，边框，外边距，内边距
+
+		事件
+			DOM： 三种绑定方式
+				jQuery：
+					$('.c1').click()
+					$('.c1').....
+					$('.c1').bind('click',function(){
+					})
+					$('.c1').unbind('click',function(){
+					})
+					*******************
+					$('.c').delegate('a', 'click', function(){
+					})
+					$('.c').undelegate('a', 'click', function(){
+					})
+					$('.c1').on('click', function(){
+					})
+					$('.c1').off('click', function(){
+					})
+				阻止事件发生
+					return false
+				# 当页面框架加载完成之后，自动执行
+				$(function(){
+					$(...)
+				})
+
+		jQuery扩展：
+			- $.extend        $.方法
+			- $.fn.extend     $(..).方法
+
+			(function(){
+				var status = 1;
+				// 封装变量
+			})(jQuery)
+        JS正则：
+            test -判断字符串是否符合规定的正则
+            exec -获取匹配的数据
+            rep=/^\d+$/
+            rep.test()
+            rep.exec(str)
+                登录注册验证
+        组件：
+            bootStrap模板
+                CSS
+                js
+            jqueryUI 先用这个
+            EasyUI   修改代价比较大  存在大量ajax操作
+      2、操作元素
+</script>

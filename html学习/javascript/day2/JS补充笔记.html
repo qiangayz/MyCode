@@ -1,0 +1,165 @@
+<script>
+函数：
+    普通函数：
+        function func(){
+}
+    匿名函数：
+        setInterval("func()",5000);
+        setInterval(function(){console.log(123)},5000)
+    自执行函数(创建函数并且自动执行)：
+    function  func() {
+
+    }
+    func()
+
+    (function(arg){console.log(arg);})(1)
+
+序列化：
+     li=[1,2,3,4]
+    JSON.stringify(li)  将列表对象转化为字符串
+    JSON.parse(str)  将字符串转化为列表对象
+
+转义：
+    客户端（cookie）请求服务器端
+    将数据转义之后保存到cookie里面
+
+eval
+    python:
+        val =eval(表达式)
+        exec(执行代码)
+    JavaScript：
+        eval
+时间：
+    Date类
+    var d=new Date()
+    d.getxxx 获取
+    d.setxxx 设置
+作用域：
+    五句话搞定JavaScript作用域
+    其他语言：以代码块作为作用域
+    python中是以函数作为作用域的
+    javascript：以函数作为作用域(let)
+        function  def() {
+            if(1==1){var name = 'za'};
+            console.log(name);
+        }
+        def ()
+    2.函数的作用域在函数未被调用之前，已经创建
+    3、函数的作用域存在作用域链，并且也是在被调用之前创建
+        a = '123';
+        function def(){
+            var a = '456';
+            function inner(){
+                console.log(a);
+            }
+            return inner;
+        }
+        var ret = def()
+        ret()
+    4、函数内部局部变量提前声明
+        解释的过程中会执行var a；但是不会赋值
+        function def() {
+            console.log(a);
+            var a= '123'
+        }
+javascript面向对象：
+        不能将类的方法定义在类里面需要写在原型里面，因为每次创建实例都会创建类的方法，所以要把方法写在原型里面。避免浪费内存
+        类的创建实例：
+        function Foo(n) {
+            this.name = n    #相当于self.name
+        }
+        #Foo的原型：
+        Foo.prototype={
+            'sayname':function () {
+                console.log(this.name)
+            }
+        }
+
+DOM:
+    查找
+        直接查找/间接查找：
+                var obj = document.getElementById('i1');
+                obj.innerText  处理全部文本，不包含当前标签内的标签
+                obj.innerHTML 包含所有，包括里面的标签
+                赋值：
+                obj.innerText='xxxx';
+                obj.innerHTML= '<a href="www.baidu.com"> xxxx</a>';
+                value (
+                    针对input value获取当前标签中的值)
+                    select 获取选中的value值（selectedIndex）
+                    textarea value获取当前标签中的值
+                搜索框的实例：
+                样式的操作：
+                    obj.className
+                    obj.classList:
+                        obj.classList.add()
+                        obj.classList.remove()
+                    obj.style.fontSize = '16px'
+                    obj.style.backgroundColor = '16px'
+                    obj.style.color = '16px'
+                属性的操作：
+                    obj.setAttribute()
+                    obj.removeAttribute()
+                    obj.attributes
+                创建标签并增加到html中
+                    1、字符串形式
+                    2、对象的方式
+                提交表单：
+                    任何标签都可以通过JavaScript提交表单
+                其他：
+                    console.log()
+                    alert()
+                    var v=confirm(信息)  v为true或false  弹出确认框
+                    刷新
+                    localtion.href  获取当前网页
+                    localtion.href='www.xxxxx'重定向，跳转
+                    localtion.reload()  相当于 localtion.href=localtion.href 刷新功能
+                    定时器：
+                     var obj =   setInterval(function () {
+                            console.log(123)
+                        },5000)
+                        clearInterval(obj);清除定时器
+                        定时器只执行一次 5秒后执行
+                        setTimeout(function () {
+                            console.log(123)
+                        },5000)
+                        clearTimeout() 清除定时器
+                事件：
+                    onclick,onblur,onfocus
+                    面试题：行为。样式。结构相分离的页面？
+                            JS    CSS    HTML
+                    绑定事件的两种方式
+                        a 直接标签绑定 onclick=‘xxxx（）’
+                        b 先获取DOM对象，然后进行绑定
+                            document.getElementById('xx').onclick
+                            document.getElementById('xx').onfocus
+                        this,当前触发事件的标签
+                        a.第一种绑定方式
+                            <input id='i1' type='button' onclick='Clickon(this)'>
+                                function Clickon(self) {
+                                   // 当前点击的标签
+                                }
+                        b、第二种绑定方式
+                            <input id='i1' type='button'>
+                                document.getElementById('i1').onclick=function () {}
+                        c、第三种绑定方式
+                            var mydiv=document.getElementById('i1')
+                            mydiv.addEventListener('click',function(){console.log(123)},false);
+                            mydiv.addEventListener('click',function(){console.log(456)},false);
+                            一个事件执行两个函数 false是冒泡模式，当两个div重叠是，点击重叠部分false会先执行上层，true会先执行下层
+
+                作用域实例：
+                         var myTrs = document.getElementsByTagName('tr');
+                         var len =myTrs.length;
+                         for(var i=0;i<len;i++){
+                             myTrs[i].onmouseover=function () {
+//                                                          谁调用的函数this就会指向谁
+                                 this.style.backgroundColor='red'
+                             }
+                             myTrs[i].onmouseout=function () {
+//                                                          谁调用的函数this就会指向谁
+                                 this.style.backgroundColor=''
+                             }
+                         }
+                sublime text emmet插件，方便书写代码
+</script>

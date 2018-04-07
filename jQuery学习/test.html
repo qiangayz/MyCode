@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .menu {
+            height: 48px;
+            background-color: #DDDDDD;
+            line-height: 48px;
+        }
+         .menu .menu-item{
+            float: left;
+            padding: 0 20px;
+            border-left: 1px solid red;
+            cursor:pointer;
+        }
+        .content{
+            /*width: 700px;*/
+            height: 500px;
+            background-color: #1d9ad6;
+        }
+        .active{
+            background-color: red;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 700px;margin:0 auto">
+
+        <div class="menu">
+            <div  class="menu-item active" >菜单一</div>
+            <div  class="menu-item" >菜单二</div>
+            <div  class="menu-item" >菜单三</div>
+        </div>
+        <div class="content">
+            <div >内容一</div>
+            <div class="hide" >内容二</div>
+            <div class="hide">内容三</div>
+
+        </div>
+
+    </div>
+<script src="jquery.js"></script>
+<script>
+    $('.item').click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+     var n = $(this).attr('q');
+//        $('.content ').children("[b='"+n+"']").addClass().removeClass('hide').siblings().addClass('hide')
+//        $("[b='"+n+"']").addClass().removeClass('hide').siblings().addClass('hide')；
+        $('.content').children().eq($(this).index()).removeClass('hide').siblings().addClass('hide');
+    })
+</script>
+</body>
+</html>

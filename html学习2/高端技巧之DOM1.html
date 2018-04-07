@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" width="300px">
+    <tr><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td>1</td><td>2</td><td>3</td></tr>
+</table>
+    <script>
+        var myTrs = document.getElementsByTagName('tr');
+        var len =myTrs.length;
+        for(var i=0;i<len;i++){
+            myTrs[i].onmouseover=function () {
+//                谁调用的函数this就会指向谁
+                this.style.backgroundColor='red'
+            }
+            myTrs[i].onmouseout=function () {
+//                谁调用的函数this就会指向谁
+                this.style.backgroundColor=''
+            }
+        }
+    </script>
+</body>
+</html>

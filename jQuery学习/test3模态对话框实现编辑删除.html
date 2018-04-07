@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display:none;
+        }
+        .modal{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 400px;
+            margin:-250px 0 0 -250px ;
+            background-color: #1d9ad6;
+            z-index: 10;
+        }
+        .shadow{
+            position: fixed;
+            background-color: black;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.6;
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+    <a  id="i1" onclick="addElement();">添加</a>
+    <table border="1" id="tb">
+        <tr>
+            <td target="hostname">1.1.1.1..1</td>
+            <td target="port">123123</td>
+            <td target="ip">123123</td>
+            <td><a class="edit">编辑</a>|<a class="del">删除</a></td>
+        </tr>
+        <tr>
+            <td target="hostname">1.1.1.1..2</td>
+            <td target="port">123123</td>
+            <td target="ip">123123</td>
+            <td><a class="edit">编辑</a>|<a class="del">删除</a></td>
+        </tr>
+        <tr>
+            <td target="hostname">1.1.1.1..3</td>
+            <td target="port">123123</td>
+            <td target="ip">123123</td>
+            <td><a class="edit">编辑</a>|<a class="del">删除</a></td>
+        </tr>    <tr>
+            <td target="hostname">1.1.1.1..4</td>
+            <td target="port">123123</td>
+            <td target="ip">123123</td>
+            <td><a class="edit">编辑</a>|<a class="del">删除</a></td>
+        </tr>
+        <tr>
+            <td target="hostname">1.1.1.1..5</td>
+            <td target="port">123123</td>
+            <td target="ip">123123</td>
+            <td><a class="edit">编辑</a>|<a class="del">删除</a></td>
+        </tr>
+    </table>
+    <div class="modal hide">
+        <div>
+            <input name="hostname" placeholder="hostname" type="text"/>
+            <input name="port" placeholder="port" type="text"/>
+            <input name="ip" placeholder="ip" type="text"/>
+        </div>
+        <div>
+            <input type="button" value="取消"/>
+            <input type="button" value="确定"/>
+        </div>
+    </div>
+    <div class="shadow hide"></div>
+
+<script src="jquery.js"></script>
+<script>
+    $('.del').click(function(){
+        $(this).parent().parent().remove();
+    });
+    $("#i1").click(function () {
+        $('.modal,.shadow').removeClass('hide');
+    });
+     $('input[value="取消"]').click(function () {
+        $('.modal,.shadow').addClass('hide');
+        $('.modal input[name="hostname"]').val('');
+        $('.modal input[name="port"]').val('');
+         $('.modal input[name="ip"]').val('');
+    });
+     $('.edit').click(function () {
+         $('.modal,.shadow').removeClass('hide');
+         var tds = $(this).parent().prevAll();
+//         var host = $(tds[2]).text();
+//         var port = $(tds[1]).text();
+//         var ip = $(tds[0]).text();
+//         $('.modal input[name="hostname"]').val(host);
+//         $('.modal input[name="port"]').val(port);
+//         $('.modal input[name="ip"]').val(ip);
+         tds.each(function(){
+            var n =$(this).attr('target');
+            var text =$(this).text();
+            var a1 = '.modal input[name="';
+             var a2 = '"]';
+//            $('modal input[name=n]').val(text);  #错误写法，因为$('x')为字符串，不能把变量加进去
+             var temp= a1+n+a2;
+             $(temp).val(text);
+//         })
+//         var port = $(this).parent.prevAll()(1).text();
+//         var ip = $(this).parent.prevAll()(0).text();
+          })})
+     $('input[value="确定"]').click(function () {
+         var tr = document.createElement('tr');
+            var td1 = document.createElement('td');
+            td1.innerHTML = "11.11.11.11";
+            var td2 = document.createElement('td');
+            td2.innerHTML = "8001";
+
+            $(tr).append(td1);
+            $(tr).append(td2);
+
+            $('#tb').append(tr);
+
+            $(".modal,.shadow").addClass('hide');
+     })
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hide{
+            display: none;
+        }
+        .menu {
+            height: 48px;
+            background-color: #DDDDDD;
+            line-height: 48px;
+        }
+        .item{
+            float: left;
+            height: 48px;
+            line-height: 48px;
+            padding: 0 40px;
+            /*这里加框线的话会让下一列的内容一居中，*/
+            border: 1px solid #47a447;
+            cursor:pointer;
+        }
+        .content{
+            width: 700px;
+            height: 500px;
+            background-color: #1d9ad6;
+        }
+        .active{
+            background-color: red;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 700px;height:900px;margin: 0 auto ;background-color: #DDDDDD">
+        <div class="menu">
+            <div class="item"  q="1">菜单1</div>
+            <div class="item"  q="2">菜单1</div>
+            <div class="item"  q="3">菜单1</div>
+        </div>
+        <div class="content">
+            <div  b="1">内容1</div>
+            <div class="hide" b="2">内容2</div>
+            <div class="hide" b="3">内容3</div>
+        </div>
+    </div>
+<script src="jquery.js"></script>
+<script>
+    $('.item').click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+     var n = $(this).attr('q');
+//        $('.content ').children("[b='"+n+"']").addClass().removeClass('hide').siblings().addClass('hide')
+//        $("[b='"+n+"']").addClass().removeClass('hide').siblings().addClass('hide')；
+        $('.content').children().eq($(this).index()).removeClass('hide').siblings().addClass('hide');
+    })
+</script>
+</body>
+</html>

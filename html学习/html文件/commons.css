@@ -1,0 +1,60 @@
+
+#i1 {
+    background-color: burlywood;
+    height: 48px;
+}
+
+.c {
+    background-color: red;
+    height: 48px;
+}
+
+.c2 {
+    background-color: blue;
+    height: 48px;
+}
+
+span {
+    background-color: yellowgreen;
+    height: 48px;
+}
+
+a {
+    background-color: blue;
+    height: 48px;
+}
+
+div span {
+    background-color: black;
+    color: white;
+    height: 48px;
+}
+
+.c2 div {
+    background-color: yellow;
+    font-size: 45px;
+    color: red;
+    height: 48px;
+}
+
+.c2 div div {
+    background-color: yellow;
+    color: black;
+    height: 48px;
+}
+
+#i5, #i6, #i7, .c3, .c4 {
+    background-color: yellow;
+    color: blue;
+    height: 48px;
+}
+
+input[type='text'] {
+    width: 100px;
+    height: 200px;
+}
+
+.c1[type='zq'] {
+    width: 200px;
+    height: 200px;
+}

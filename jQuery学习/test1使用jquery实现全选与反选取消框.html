@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="全选" onclick="checkAll()"/>
+    <input type="button" value="反选" onclick="notCheck()"/>
+    <input type="button" value="取消" onclick="notCheckAll()"/>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>选项</th>
+                <th>ip</th>
+                <th>端口</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            <tr>
+                <td><input type="checkbox"</td>
+                <td>1.1.1.1</td>
+                <td>20012</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"</td>
+                <td>1.1.1.1</td>
+                <td>20012</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"</td>
+                <td>1.1.1.1</td>
+                <td>20012</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"</td>
+                <td>1.1.1.1</td>
+                <td>20012</td>
+            </tr>
+        </tbody>
+    </table>
+<script src="jquery.js"></script>
+<script>
+    function checkAll() {
+        $('#tb :checkbox').prop('checked',true);
+    }
+    function notCheckAll(){
+        $('#tb :checkbox').prop('checked',false);
+    }
+    function notCheck() {
+        $('#tb :checkbox').each(function (k) {
+//            this,指代的是当前循环的每个元素
+//            使用dom方法
+//            if(this.checked){
+//                this.checked=false
+//            }else{this.checked=true;}
+//            使用jquery的第一种方式：
+//            if($(this).prop('checked')){
+//                $(this).prop('checked',false)
+//            }else{$(this).prop('checked'),true;}
+//            使用三元运算进一步精简版的jquery实现方式
+            var v= $(this).prop('checked')?false:true;
+            $(this).prop('checked',v);
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="i1">观沧海
+    <a href="#">
+        <span>观沧海</span></a>
+        </div>
+    <input type="text" id="i2">
+    <input type="password" id="i3">
+    <select id="i4">
+        <option value="11">东陵碣石</option>
+        <option value="12">以观沧海</option>
+        <option value="13">树木丛生</option>
+    </select>
+    <textarea id="i5"></textarea>
+</body>
+</html>
+console调试记录：
+var obj = document.getElementById('i1');
+undefined
+obj.innerText
+"观沧海 观沧海"
+obj.innerHTML
+"观沧海
+    <a href="#">
+        <span>观沧海</span></a>
+        "
+obj.innerText='<a href='#'>sadasd</a>'
+obj.innerText="<a href='#'>sadasd</a>"
+"<a href='#'>sadasd</a>"
+obj.innerHTML="<a href='#'>sadasd</a>"
+"<a href='#'>sadasd</a>"
+var obj = document.getElementById('i2');
+undefined
+obj.value
+""
+obj.value
+"asdasd"
+obj.value=23123
+23123
+var obj = document.getElementById('i3');
+undefined
+obj.value
+"123123123"
+obj.value=444444
+444444
+obj.value
+"444444"
+var obj = document.getElementById('i4');
+undefined
+obj.value
+"11"
+obj.value
+"13"
+obj.value=12
+12
+var obj = document.getElementById('i5');
+undefined
+obj.value
+""
+obj.value
+"asdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"

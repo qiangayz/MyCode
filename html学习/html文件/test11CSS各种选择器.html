@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #i1{
+            background-color: burlywood;
+            height: 48px;
+        }
+        .c{
+            background-color: red;
+            height: 48px;
+        }
+        .c2{
+            background-color: blue;
+            height: 48px;
+        }
+        span{
+            background-color: yellowgreen;
+            height: 48px;
+        }
+        a{background-color: blue;
+            height: 48px;
+        }
+        div span{
+            background-color: black;
+            color:white;
+            height: 48px;
+        }
+        .c2 div{
+            background-color: yellow;
+            font-size: 45px;
+            color:red;
+            height: 48px;
+        }
+        .c2 div div{
+            background-color: yellow;
+            color:black;
+            height: 48px;
+        }
+        #i5,#i6,#i7,.c3,.c4{
+            background-color: yellow;
+            color:blue;
+            height: 48px;
+        }
+        input[type='text']{
+            width:100px;
+            height: 200px;
+        }
+        .c1[type='zq']{
+            width:200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--/* 第一种 在标签里面加style属性*/-->
+    <div style="background-color: burlywood;height: 200px;">ffffffff</div>
+    <!--/* 第二种 在title下面加入style属性，里面给对应id设定style属性，比如下面这个标签为#i1，
+    那么就会使用上面设定的style,但是每个标签的ID都是唯一的，所以这种方法不太使用，如果要设置多个标签的style那么就要写多个id选择器*/-->
+    <div id="i1">id选择器</div>
+    <!--/* 第三种 在style标签里面加入class选择器设定style属性，标签用的时候方法如下
+    同一个class选择器可以被多个标签应用，这种方法比较广泛*/-->
+    <div class="c">class选择器1</div>
+    <div class="c">class选择器2</div>
+    <div class="c2">class选择器3</div>
+    <!--/* 第四种 标签选择器，在style标签里面写对应标签模式的style，那么之后所有的这个模式都会使用此style*/-->
+    <span>标签选择器1</span>
+    <span>标签选择器2</span>
+    <a href="https://www.duba.com">标签选择器3</a>
+    <!--/* 第五种 关联选择器（层级选择器）*/-->
+    <div>
+        <span>关联选择器</span>
+    </div>
+    <!--/* 或者 关联选择器第二种形式*/-->
+    <div class="c2">
+        <div>关联选择器第二种形式</div>
+    </div>
+    <div class="c2">
+        <div>
+            <div>3层升入</div>
+        </div>
+    </div>
+    <!--/* 第六种 组合选择器*/-->
+
+    <div id="i5">组合选择器1</div>
+    <div id="i6">组合选择器2</div>
+    <div id="i7">组合选择器3</div>
+    <div class="c3">组合选择器4</div>
+    <div class="c4">组合选择器5</div>
+    <div></div>
+    <!--/* 第七种 属性选择器*/-->
+    <input class="c1" type="text"/>
+    <input class="c1" type="zq"/>
+</body>
+</html>

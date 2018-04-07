@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="#23">我是一个热爱学习的人吗？</div>
+    <script>
+        function def() {
+//            根据ID来获取标签
+            var msg = document.getElementById('#23');
+//            获取标签的内部的内容
+            var msg1 = msg.innerText;
+//            获取第0个字符
+            var msg2 = msg1.charAt(0);
+//            获取1到末尾字符
+            var msg3 = msg1.substring(1,msg1.length);
+//            两字符加起来
+            var new_msg = msg3 + msg2;
+//            复制给标签内容
+            msg.innerText = new_msg;
+        }
+        setInterval('def()',50)
+    </script>
+</body>
+</html>

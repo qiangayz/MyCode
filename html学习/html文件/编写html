@@ -1,0 +1,137 @@
+1、doctype对应关系
+2、html标签，标签内部可以写属性 html标签一个文件里面只能有一个
+3、注释： <1-- 注释的内容 -->
+4、head里面所有的标签都看到，只有title标签可以看到
+       head里面的其他标签：
+5、标签分类：
+        自闭合标签 <meta charset="UTF-8">  非常少
+        主动闭合  <title>123456</title>
+
+6、head标签中：<meta -> 编码、跳转、刷新、关键字、描述 IE兼容
+                <meta http-equiv="X-UA-Compatible" content="IE=IE9;IE=IE8;" />
+            title标签
+            <link/>  搞图标 、CS 和 JS 讲
+            <style/>CS 和 JS 讲
+            <script/>CS 和 JS 讲
+
+7、body标签
+    图标 &nbsp （空格） ； &gt;   &lt;（左右尖括号）
+    *P标签，段落
+    *br标签，换行
+    ——小总结
+        ****所有的标签分为块级标签：*h1(加大加粗)、p（段落与段落有间距）、*div(白板)
+                      行内标签，也叫内联标签：****span（白板）
+        标签之间可以嵌套
+        标签存在的意义、定位操作，用于JS操作和cs操作
+        ps chorme审查元素的使用
+            定位
+            查看样式
+
+        ****form标签 主要针对input、textarea、select来提交内容到后台的
+        ***input系列
+            input type = 'text'      name属性，（value=‘’默认值） 用于后台取数据
+            input type = 'password'    name属性
+            input type = 'submit'     value = '提交' 提交按钮，提交表单
+            input type = 'button'     value = '登陆'  按钮
+
+            input type=‘radio’    value ，name属性，checked=‘checked’默认值（name相同，则互斥）单选框
+            input type=‘checkbox’    value ，name属性，checked=‘checked’默认值（name相同，不互斥，后台用批量获取数据） 复选框
+
+            input type=‘file’      依赖form表单的一个属性 enctype=‘multipart/form-data’
+            input  type='reset'      #重置
+
+            textarea 多行数据   name属性，默认值放中间
+
+            select标签      name，内部option value 提交到后台  ，size，multiple(安装鼠标多选) optgroup选项分组
+        ***a标签，不能提交到后台
+            跳转
+            锚（跳转到网页某一位置）href="#i3(某个标签的ID)" 标签ID不能重复
+
+        ***img标签 title src alt
+
+        列表标签
+                ul
+                    li
+                ol
+                    li
+                dl
+                    dt
+                    dd
+        表格标签
+            ***table
+                thead
+                    tr
+                        th
+                tbody
+                    tr
+                        th
+             colspan
+             rowspan
+
+        - label
+            用于点击文件，使得关联的标签获取光标
+            <label for="username">用户名：</label>
+            <input id="username" type="text" name="user" />
+        - fieldset
+            legend
+
+CSS
+    在每个标签上都可以设置style属性
+        style="background-color: burlywood;
+        height: 48px;
+
+    编写CSS样式
+        1、标签的style属性
+        2、写在head里面，style标签中写样式
+            （1）#id选择器
+            #i1{
+            }
+            <标签 id='i1'></标签>
+            （2）class选择器
+            .名称{。。。}
+            <标签 class='名称'></标签>
+            (3)、标签选择器
+                div{
+                }
+                所有div会设置此样式
+            (4)层级选择器（空格）
+                .c1.c2
+            (5)组合选择器
+                    #c1,.c2，div{
+                    }
+            (6)属性选择器
+                对选择到的标签在通过属性再进行一个筛选
+
+            (标签上的style优先，其他的是编写顺序，就近原则)
+            2.5、在当前目录创建commons.css文件写入所有style，就不用再每个文件中写style了，
+                用的时候导入一下就行了
+                <link rel="stylesheet" href="commons.css"/>
+        3、注释 /*  */
+        4、边框
+        10、height width line-height color font-size、font-weight
+            height:48px;
+             width: 80%;
+            color: blue;
+             font-size:20px;
+             text-align: center;
+             /*垂直方向根据标签高度居中*/
+              line-height:34px;
+              font-weight:bold;
+              border: 5px solid red">
+        5、背景
+        6、float 让标签浮起来，块级标签可以堆叠布局
+            <div style="clear: both;"></div>  父float收回框
+
+        7、display  （块级标签和行内标签互转）
+             display：none  让标签消失
+             display：inline
+             display：block
+             display：inline-block
+             行内标签，无法设置高度，宽度 padding margin
+             块级标签可以设置
+        8、padding margin
+            margin-top  外边距
+            padding-top 内边距
+            边距，内边距，外边距
+        9、text-align
+        10、height width line-height color font-size、font-weight

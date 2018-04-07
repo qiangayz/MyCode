@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="f1" action="http://www.baidu.com">
+        <input type="text"/>
+        <input type="submit" value="提交1"/>
+        <a onclick="submitForm();"/>提交2</a>
+        <a onclick="submitForm1();"/>确认3</a>
+    </form>
+    <script>
+        function submitForm(){
+            document.getElementById('f1').submit()
+        }
+        function submitForm1(){
+//            alert(12312)
+            var v=confirm('确认提交版本吗？')
+            console.log(v)
+        }
+    </script>
+</body>
+</html>

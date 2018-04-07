@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+</head>
+<body>
+    <form action="http://localhost:8888/index" method="POST"><!--向后台提交数据  提交的目标地址
+                  "http://localhost:8888/index" method="POST">
+    method="GET"也可以是POST get会将提交的数据显示到url，post不会显示-->
+        <input type="text" name="user"/>
+        <input type="password" name="pwd" />
+        <input type="button" value="登录" />
+        <input type="submit" value="登录1" />  <!--后台拿到的是一个字典，以name为key输入信息为value -->
+
+    </form>
+    <br/>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--这里注意函数名要首字母大写，小写的话不生效-->
+     <div style="width: 60px;margin: 0 auto">
+         <input  id="i1" type="text" value="请输入内容" onfocus="Foo();" onblur="Blur();"/>
+         <!--目前好多新浏览器支持的格式-->
+         <input  id="i2" type="text" placeholder="请输入内容"/>
+     </div>
+    <script>
+        function Foo() {
+            var tag = document.getElementById("i1");
+            var val = tag.value;
+            if(val == "请输入内容"){tag.value=""};
+        }
+        function Blur() {
+            var tag = document.getElementById("i1");
+            var val = tag.value;
+            if(val.length == 0){tag.value="请输入内容"};
+        }
+    </script>
+</body>
+</html>
