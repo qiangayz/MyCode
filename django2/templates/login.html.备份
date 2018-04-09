@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: lightskyblue;margin-right: 35%;margin-left: 35%;margin-top: 200px">
+    <form action="/login/" method="POST" enctype="multipart/form-data">
+        <p><input type="text"  name="username" placeholder="请输入用户名"></p>
+        <p><input type="text"  name="password" placeholder="请输入用户名"></p>
+        <p>性别选择</p>
+        <p>
+            男：<input type="radio" name="gender" value="1" />
+            女：<input type="radio" name="gender" value="2" />
+            中性：<input type="radio" name="gender" value="3" />
+        </p>
+        <p>爱好</p>
+        <p>
+            上网：<input type="checkbox" name="favor" value="11"/>
+            看书：<input type="checkbox" name="favor" value="22"/>
+            撩妹：<input type="checkbox" name="favor" value="33"/>
+        </p>
+        <p>
+            <select name="city">
+                <option value="sh">上海</option>
+                <option value="bj">背景</option>
+                <option value="tj">天机</option>
+            </select>
+        </p>
+        <p>
+            <select name="city1" multiple>
+                <option value="sh">上海</option>
+                <option value="bj">背景</option>
+                <option value="tj">天机</option>
+            </select>
+        </p>
+        <p><input type="file" name="fafafa" /></p>
+        <p><input  id="i1" type="submit" value="提交" placeholder="请输入用户名"></p>
+    </form>
+        <div id="i2" >
+        <p>用户名：{{ msg.0 }}</p>
+        <p>密码：{{ msg.1 }}</p>
+        <p>性别：{{ msg.2 }}</p>
+        <p>爱好：{{ msg.3 }}</p>
+        <p>城市1：{{ msg.4 }}</p>
+        <p>城市2：{{ msg.5 }}</p>
+        <p>文件名：{{ msg.6 }}</p>
+            </div>
+        </div>
+<script>
+    document.getElementById('i1').onclick(function () {
+        document.getElementById('i2').classList.add(".show")
+    })
+</script>
+</body>
+</html>
