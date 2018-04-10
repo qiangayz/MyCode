@@ -1,0 +1,162 @@
+环境准备
+创建Django工程
+			django-admin startproject 工程名
+1、注释 #'django.middleware.csrf.CsrfViewMiddleware',
+2、创建template模板文件夹和static静态文件夹
+3、设置静态路径：STATICFILES_DIRS = (
+			os.path.join(BASE_DIR, 'static'),
+		)
+4、创建app cd 工程名 python manage.py startapp APP01
+5、将APP01注册到setting里
+6、在app的models里面创建数据库
+	第一张表：
+	class Host(models.Model):
+    nid = models.AutoField(primary_key=True)   #主键一般自动生成，也可以自己设定，但是需要声明primary_key
+    hostname = models.CharField(max_length=32,db_index=True)    #db_index添加索引
+    ip = models.GenericIPAddressField(protocol="ipv4",db_index=True) #db_index添加索引设置字段为ip模式
+    port = models.IntegerField()
+    b = models.ForeignKey(to="Business", to_field='id')  添加外键，关联到Business的id
+	
+	第二张表：
+	class Business(models.Model):
+    # id 自动创建
+    caption = models.CharField(max_length=32)
+    code = models.CharField(max_length=32,null=True,default="SA")
+    # fk = models.ForeignKey('Foo')
+	
+7、执行命令，创建表
+	python manage.py makemigrations
+	python manage.py migrate
+	创建表之后可能会修改表结构或者改表名字等，先在models里面做完修改执行命令之后会有选项，
+	让你为新加的列设置默认值，也可以在models里面修改的时候这样写
+	code = models.CharField(max_length=32,null=True,default="SA")
+7.1查看表：使用Navicat Premium查看表是否建立
+8、在url里面加入：
+	from app01 import views
+
+    urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'^business$', views.business),   这里一般加一个终止符，不加的话下面那一行永远不会执行
+    #url(r'^businessadd', admin.site.urls),
+    ]
+9、在app01的views里面加入business函数
+	from django.shortcuts import render
+    from django.shortcuts import redirect
+    from app01 import models
+    # Create your views here.
+    def business(request):
+		#从数据库获取但表单的三种方式
+        v=models.Business.objects.all()
+        #QuerySet  上面语句会得到一个QuerySet列表，列表里面是三个对象。对象有下面这些属性
+        # [obj(id,caption,code),obj(id,caption,code),obj(id,caption,code) ]
+		另一种方法
+		v2 = models.Business.objects.all().values('id','caption')#根据value获得了两列值
+        # QuerySet
+        # [{'id':1,'caption': '运维部'},{'id':1,'caption': '开发'},...]
+		v3 = models.Business.objects.all().values_list('id','caption')
+        # QuerySet
+        # [(1,运维部),(2,开发)]
+        return render(request,'business.html',{'v':v})
+		
+	9.1使用host调用外键字段的方法
+		def host(request):
+			v1 = models.Host.objects.all()
+			v2 = models.Host.objects.filter(nid__gt=0)
+			print v1,'-----',v2,'----'
+			for row in v2:
+				print (row.nid,row.hostname,row.ip,row.port,row.b_id,row.b.caption,row.b.id)
+			# return HttpResponse('112312')
+			# v1 = models.Business.objects.filter(host__nid__gt=0)#也可以使用大于0的方式来获取
+			return render(request, 'host.html', {'v1': v1})
+		
+10、在模块路径下增加business.html文件
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+	<body>
+		<h1>业务线列表(对象形式的)</h1>
+		<ul>
+			{% for row in v1 %}
+				<li>{{ row.id}}-{{ row.caption}}-{{ row.code }}</li>
+			{% endfor %}
+		</ul>
+		<h1>业务线列表(字典形式的)</h1>
+		<ul>
+			{% for row in v2 %}
+				<li>{{ row.id}}-{{ row.caption}}-</li>
+			{% endfor %}
+		</ul>
+		<h1>业务线列表(元组形式的)</h1>
+		<ul>
+			{% for row in v3 %}
+				<li>{{ row.0}}-{{ row.1}}-</li>
+			{% endfor %}
+		</ul>
+	</body>
+	</html>
+	host文件
+	
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>主机名</th>
+					<th>iP</th>
+					<th>端口</th>
+					<th>业务线名称</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for row in v1 %}
+				<tr hid="{{ row.nid }}" bid="{{ row.b_id }}"/>
+					<td>{{ row.hostname }}</td>
+					<td>{{ row.ip }}</td>
+					<td>{{ row.port }}</td>
+					<td>{{ row.b.caption }}</td>
+				{% endfor %}
+			</tbody>
+		</table>
+	
+	</body>
+	</html>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
