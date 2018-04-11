@@ -70,6 +70,8 @@
 			return render(request, 'host.html', {'v1': v1})
 		
 10、在模块路径下增加business.html文件
+{#                forloop.counter计数器，从1开始，forloop.counter0从0开始,revcounter倒序编号、revcounter0  还有forloop.first、forloop.last#}
+{#       是否是第一个或者最后一个         forloop.parentloop#}
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -131,9 +133,34 @@
 	
 
 
-
-
-
+11、使用ajax提交
+	Ajax
+	
+		$.ajax({
+			url: '/host',
+			type: "POST",
+			data: {'k1': 123,'k2': "root"},
+			success: function(data){            这个函数会等后端服务器返回数据时候再执行
+				// data是服务器端返回的字符串
+				var obj = JSON.parse(data);
+			}
+		})
+        还有其他函数：
+		$.get
+		相当于
+			$.ajax({
+			url: '/host',
+			type: "GET",
+			data: {'k1': 123,'k2': "root"},
+			success: function(data){            这个函数会等后端服务器返回数据时候再执行
+				// data是服务器端返回的字符串
+				var obj = JSON.parse(data);
+			}
+		})
+		$.post
+		$.getJson
+		在前端将对象转换为字符串：JSON.stringify(list)
+		在前端将字符串转换对象：JSON.parse(str)
 
 
 
