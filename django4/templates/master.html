@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/commons.css">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <style>
+        .pg-header {
+            height: 48px;
+            background-color: dodgerblue;
+            color: black;
+        }
+
+    </style>
+{% block css %}{% endblock %}
+</head>
+<body>
+<div class="pg-header">多模测试服务平台</div>
+{% block content %}{% endblock %}
+
+<script src="/static/jquery.js"></script>
+<script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

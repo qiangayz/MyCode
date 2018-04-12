@@ -35,6 +35,8 @@ def business(request):
 #     return render(request, 'host.html', {'v1': v1,'v2':v2,'v3':v3})
 
 def host(request):
+    for k,v in request.environ.items():
+        print k,'---->',v
     if request.method=="GET":
         v1 = models.Host.objects.all()
         v2 = models.Host.objects.filter(nid__gt=0) .values('nid','hostname','b_id','b__caption')
