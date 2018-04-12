@@ -1,0 +1,24 @@
+{% extends 'master.html' %}
+{% block title %}版本提交{% endblock %}
+
+{% block css %}
+    <style>
+    .css1{
+        background-color: red;
+    }
+    </style>
+{% endblock %}
+{% block content %}
+<h1 class="css1">版本提交界面</h1>
+    {% include 'tag.html' %}
+<ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+  <li class="dropdown-header">Dropdown header</li>
+  <li class="dropdown-header">Dropdown header</li>
+  <li class="dropdown-header">Dropdown header</li>
+  <li class="dropdown-header">Dropdown header</li>
+</ul>
+{% endblock %}
+{% block js %}
+    <script>
+    </script>
+{% endblock %}
