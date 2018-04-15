@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body  style="text-align: center">
+<div style="background-color: red ;width: 1000px">
+    <div style="border: 1px solid #DDD;border-radius: 4px;background-color: #FFF;float:right;margin:auto;width: 400px;height: 420px">
+    <div style="margin:auto;width: 100%;
+                border-bottom: 1px solid #DDD;
+                padding-bottom: 10px;
+                overflow: hidden">
+        <h2 style="font-size: 40px;margin-left:20px;float: left;
+                    font-weight: normal;
+                    color: #333; ">登录：</h2>
+
+        <a style="font-size: 14px;float: right;
+                        outline: 0;color:red;text-decoration: none;
+                    margin-top: 5px;margin-right: 50px">默认使用8位工号登录，不用输入密码</a>
+    </div>
+
+    <form action="/login/" method="POST">
+        <div>
+            <input type="text" id="username" placeholder="工号/手机/邮箱" name="username"
+                   style="font-size: 14px;margin-left: 100px;width: 200px;height: 40px;border-radius: 4px;"/>
+        </div>
+        <div>
+            <input type="password" id="password" placeholder="登录密码" name="password"
+                   style="font-size: 14px;margin-left: 100px;width: 200px;height: 40px;border-radius: 4px;"/>
+        </div>
+        <div style="margin-left: 100px">
+            <input name="remember" value="1" checked="checked" type="checkbox">
+            <span>保持登录状态</span>
+            <a href="http://www.cnblogs.com/qiangayz/" id="forget-password" class="find-pwd"
+               style="float: right;margin-right: 50px">忘记密码？</a>
+        </div>
+
+        <div style="margin-left: 100px ;width: 200px">
+
+            <button type="submit" style="width: 200px;background-color: dodgerblue;font-size: 20px;border-radius: 4px;"
+                    onclick="show()">
+                登录
+            </button>
+            <a style="font-size: 20px" href="https://www.baidu.com/">跳转</a>
+
+        </div>
+
+    </form>
+</div>
+</div>
+</body>
+</html>

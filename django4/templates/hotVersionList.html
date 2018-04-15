@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .pagination .page.active{
+            background-color: lightskyblue;
+            color: black;
+        }
+        .pagination .page{
+            display: inline-block;
+            padding: 6px;
+            background-color: blanchedalmond;
+            margin: 5px;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    {% for i in li %}
+    <ul>
+        {% include 'li.html' %}
+    </ul>
+    {% endfor %}
+    <div class="pagination">
+        {{ pag_str }}
+    </div>
+</body>
+</html>

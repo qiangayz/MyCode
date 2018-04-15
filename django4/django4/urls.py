@@ -22,4 +22,8 @@ urlpatterns = [
     url(r'^tp2/', views.tp2),
     url(r'^tp3/', views.tp3),
     url(r'^master/', views.master),
+    url(r'^hotVersionList/', views.hotVersionList),
+    url(r'^login/', views.login),
+    url(r'^index/', views.index),
+    url(r'^index1/', views.index1),
 ]
