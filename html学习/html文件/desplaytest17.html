@@ -5,9 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-    <div style="background-color: red;display: inline;">asdf</div>
-    <span style="background-color: red;display: block;">asdf</span>
+    <!--width: 300px不生效了，下面的span可以显示在div后面-->
+    <div style="background-color: blue;display: inline;width: 300px">asdf</div>
+    <span>1222222222222222222</span>
+    <!--span变成了块级标签，下面那个span到了下一行-->
+    <span style="background-color: red;display: block;width: 200px">asdf</span>
+    <span>33333333333333</span>
+    <!--同时具有了块级和行内标签的效果-->
     <span style="display:inline-block;background-color: red;height: 50px;width: 70px;">Alex</span>
+    <span>444444444444</span>
     <a style="background-color: red;">Eric</a>
 </body>
 </html>

@@ -19,7 +19,8 @@ USER_DICT={
     "4":{"name":"root4","email":"123"},
 }
 def index(request):
-    return  render(request,"index.html",{'user_dict':USER_DICT})
+    print request.path_info
+    return  render(request,"index.html",{'user_dict':USER_DICT,})
 
 def userinfo(request):
     if request.method =="GET":
@@ -136,9 +137,12 @@ class Home(View):
 from app01 import models
 def orm(request):
     #增加数据
+    # 方法1：
     # models.UserInfo.objects.create(username='root',password='root123')
+    # 方法2：
     # obj = models.UserInfo(username='zte',password='zte')
     # obj.save()
+    # 方法三：
     # dict1={'username':'zte1',"password":'zte1' }
     # obj = models.UserInfo(**dict1)
     # obj.save()
@@ -154,5 +158,5 @@ def orm(request):
     #删除
     # models.UserInfo.objects.filter(id='4').delete()
     #更新
-    models.UserInfo.objects.all().update(password=123)
+    models.UserInfo.objects.all().update(password=45678)
     return HttpResponse('adasd')

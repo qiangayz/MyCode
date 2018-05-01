@@ -45,7 +45,7 @@ jQuery
 				$(':text')
             实例：
                 多选，反选，全选
-				- 选择权
+				- 选择器
 				-
 					$('#tb:checkbox').prop('checked');        获取值
 					$('#tb:checkbox').prop('checked', true);  设置值
@@ -104,7 +104,7 @@ jQuery
                 .attr('name')
                 .removeattr('name')
                 .attr('name','za')
-                #专门用于chekbox，radio
+                #专门用于chekbox，radio（不使用设置属性的方式，因为第一版本和第二版本这个方法处理不彻底，所以使用专用的prop方法）
                 .prop('checked')
                 .prop('checked',true)
 

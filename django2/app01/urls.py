@@ -19,18 +19,19 @@ from django.contrib import admin
 from app01 import views
 
 urlpatterns = [
-#     url(r'^admin/', admin.site.urls),
+     url(r'^admin/', admin.site.urls),
       url(r'^index/', views.index),
       url(r'^userinfo/', views.userinfo),
       url(r'^userdetail-(?P<nid>\d+)/', views.userdetail),
       url(r'^userdel-(?P<nid>\d+)/', views.userdel),
       url(r'^useredit-(?P<nid>\d+)/', views.user_edit),
       url(r'^orm/', views.orm),
-#     url(r'^indexssssssssssssssssss/', views.index,name='indexx'),
+     url(r'^indexssssssssssssssssss/(\d+)/', views.index,name='indexx'),
      url(r'^login/', views.login),
 #     url(r'^home/', views.Home.as_view()),
-#     # url(r'^detail/', views.detail),
-#     url(r'^detail-(\d+).html', views.detail2),
+     url(r'^detail/', views.detail),
+     url(r'^detail-(\d+).html', views.detail2),
+#     url(r'^detail-(?P<nid>\d+)-(?P<uid>\d+).html', views.detail3),
 #     url(r'^detail-(?P<nid>\d+)-(?P<uid>\d+).html', views.detail3),
 #
  ]

@@ -20,8 +20,8 @@ class Application(models.Model):
     name = models.CharField(max_length=32)
     r = models.ManyToManyField("Host")
 # 2
-# class HostToApp(models.Model):
-#     hobj = models.ForeignKey(to='Host',to_field='nid')
-#     aobj = models.ForeignKey(to='Application',to_field='id')
+class HostToApp(models.Model):
+    hobj = models.ForeignKey(to='Host',to_field='nid')
+    aobj = models.ForeignKey(to='Application',to_field='id')
 
 # hid: 1~10  aid:1~2

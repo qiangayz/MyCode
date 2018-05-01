@@ -90,4 +90,7 @@ def test_ajax(request):
     return HttpResponse(json.dumps(ret))
 
 def app(request):
-    return render(request,'app.html')
+    app_list = models.Application.objects.all()
+    for row in app_list:
+        print row.name,row.r.all()
+    return render(request,'app.html',{'app_list':app_list})

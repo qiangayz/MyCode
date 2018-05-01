@@ -9,7 +9,7 @@ def login(request):
     data=[]
     print "2222222222222222222",request.method
     if request.method == "GET":
-        return render(request,"login.html")
+        return render(request,"login1.html")
     elif request.method == "POST":
         u = request.POST.get('username')
         p = request.POST.get('password')
@@ -40,6 +40,6 @@ def login(request):
         # if u == "zq" and p =="qwe":
         #     return redirect("/index/")
         # else:
-        return render(request,"login.html",{"msg":data})
+        return render(request,"login1.html",{"msg":data})
     else:
         return redirect("/index/")
