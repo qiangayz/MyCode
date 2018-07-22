@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="弹出" onclick="def1()">
+<div id="i2" style="font-size: larger;background-color: blue;color: white;width:240px ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我也不知道该写什么好</div>
+<script>
+    function def1() {
+        var data =  document.getElementById('i1');
+        alert(data.value);
+    }
+    function def2() {
+        var data = document.getElementById('i2').innerText;
+        var arg1 = data.charAt(0);
+        var arg2 = data.substring(1,data.length);
+        var arg3 = arg2 + arg1;
+        document.getElementById('i2').innerText = arg3
+    }
+    setInterval('def2()',100)
+</script>
+</body>
+</html>

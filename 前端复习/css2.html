@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .head{
+            height: 48px;
+            background-color: #999;
+            color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        .c1{
+            width: 900px;
+            height: 5000px;
+            background-color: #3baae3;
+            margin-top: 48px;
+        }
+        .c2{
+            width: 200px;
+            height: 50px;
+            background-color: #761c19;
+            color: white;
+            font-weight: bolder;
+            font-size: 18px;
+            position: fixed;
+            right: 0;
+            bottom: 30px;
+        }
+        .c3{
+            position: absolute;
+        }
+        .c4{
+            width: 400px;
+            height: 400px;
+            margin-left: 50px;
+            background-color: rosybrown;
+            position:relative;
+        }
+        .c5{
+            width: 100px;
+            height: 40px;
+            background-color: #2b542c;
+            color: white;
+            position: absolute;
+            top: 0;
+            right:-100px;
+        }
+    </style>
+</head>
+<body style="margin: 0">
+<div class="head">我是头部</div>
+<div class="c1">我是身体
+<div  class="c4">某人要跟着我动！笑死
+    <div class="c5">笑NM笑</div>
+</div>
+</div>
+<div class="c2" onclick="Gotop()">我是永久固定的</div>
+<div class="c2 c3" onclick="Gotop()">我是暂时固定<br/>的怎么了?MDZZ</div>
+<div style="position: relative;width: 500px;height: 200px;border: 1px solid red;margin: 0 auto;">
+        <div style="position: absolute;left:0;bottom:0;width: 50px;height: 50px;background-color: black;"></div>
+    </div>
+    <div style="position: relative;width: 500px;height: 200px;border: 1px solid red;margin: 0 auto;">
+
+        <div style="position: absolute;right:0;bottom:0;width: 50px;height: 50px;background-color: black;"></div>
+    </div>
+    <div style="position: relative;width: 500px;height: 200px;border: 1px solid red;margin: 0 auto;">
+
+        <div style="position: absolute;right:0;top:0;width: 50px;height: 50px;background-color: black;"></div>
+    </div>
+<script>
+    function Gotop() {
+        console.log('21312')
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+</body>
+</html>

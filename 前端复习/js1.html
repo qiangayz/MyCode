@@ -1,0 +1,50 @@
+<h1>Form验证的原理</h1>
+<p>首先用户在注册界面提交表单，后台收到表单之后通过request.post取到数据然后传入已经写好的Form类<br>
+执行obj.is_valid()这里的obj为Form的实例，在Form类里面对字段一个一个进行验证先执行正则匹配然后执行clean方法<br>
+这里的clean方法就是一个钩子，但是不能在验证某个字段的时候调用其他字段，原因是这个时候其他字段不能确定是否验证完成了<br>
+需要在所有字段验证之后再执行这个钩子（clean方法）具体实现方法如下：</p>
+<pre>
+________________________________________________views.py______________________________________________________
+        if request.method == "POST":
+        check_obj = account.Register(request.POST)
+        if check_obj.is_valid():
+            username = check_obj.cleaned_data.get('username')   #验证之后的值存放在check_obj.cleaned_data里面
+            password = check_obj.cleaned_data.get('password')
+            email = check_obj.cleaned_data.get('email')
+—————————————————————————————————————————————————Register—————————————————————————————————————————————————————————
+from django.forms import fields as ac_fields
+from django import forms as ac_forms
+from django.core.exceptions import ValidationError   
+
+class Register(ac_forms.Form):
+    username = ac_fields.CharField(error_messages={'required': '用户名不能为空'})
+    #password = ac_fields.CharField(error_messages={'required': '密码不能为空'})
+    password = ac_fields.RegexField(
+        '^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$\%\^\&\*\(\)])[0-9a-zA-Z!@#$\%\^\&\*\(\)]{8,32}$',   #这里正则匹配验证要求密码了里面包含字母、数字、特殊字符
+        min_length=12,
+        max_length=32,
+        error_messages={'required': '密码不能为空.',
+                        'invalid': '密码必须包含数字，字母、特殊字符',
+                        'min_length': "密码长度不能小于8个字符",
+                        'max_length': "密码长度不能大于32个字符"}
+    )
+    repassword = ac_fields.CharField(error_messages={'required': '确认密码不能为空'})
+    email = ac_fields.CharField(error_messages={'required': '邮箱不能为空', 'invalid':'邮箱格式错误'})
+    check_code = ac_fields.CharField(error_messages={'required': '验证码不能为空',
+                                                     'invalid': '邮箱格式错误'})
+    def clean(self):
+        pwd1 = self.cleaned_data.get('password')
+        pwd2 = self.cleaned_data.get('repassword')
+        if pwd1==pwd2:
+            pass
+        else:
+            from django.core.exceptions import ValidationError   #这里异常模块导入要放在函数里面，放到文件开头有时会报错，找不到
+            raise ValidationError('密码输入不一致')
+
+</pre>
+<p>然后验证之后如果两次密码不相同，那么触发的ValidationError会放到公共错误里面：</p>
+<pre>
+    check_obj.errors['__all__'] 或者
+    check_obj.errors[NON_FIELD_ERRORS]
+</pre>
+<p>但是在前段不识别check_obj.errors.__all__,所以前端需要使用：check_obj.non_field_errors(其他正常字段的取法：check_obj.errors.username.0)</p>

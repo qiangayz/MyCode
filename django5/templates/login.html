@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="width: 300px; margin: 100px auto;background-color: dodgerblue">
+    <form action="/login/" method="POST">
+        {% csrf_token %}
+        {{ csrf_token }}
+    <div><input type="text" name="username" placeholder="用户名"/> </div>
+    <div><input type="password" name="pwd" placeholder="请输入密码"/> </div>
+    <div><input type="checkbox" name="check" value="1"/> 一周之内免登陆</div>
+    <div><input type="submit" value="提交"/> </div>
+    <div><input  id="btn1" type="button" value="提交1"/> </div>
+    </form>
+</div>
+    <script src="/static/jquery.js"></script>
+    <script src="/static/jquery.cookie.js"></script>
+<script>
+        $(function(){
+            $.ajaxSetup({
+                beforeSend: function(xhr,settings){
+                    xhr.setRequestHeader('X-CSRFtoken', $.cookie('csrftoken'));
+                }
+            });
+
+            $('#btn1').click(function () {
+                console.log($.cookie('csrftoken'));
+                $.ajax({
+                    url: '/login/',
+                    type:"GET",
+                    data: {'user': 'root', 'pwd': '123'},
+                    // headers: {'X-CSRFtoken': $.cookie('csrftoken')},
+                    success:function(arg){
+
+                    }
+                })
+            });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<input type="text" id="url"/>
+<input type="button" value="提交" onclick="iframerequest();"/>
+<iframe id="iframe" src="https://www.baidu.com"> </iframe>-->
+{#伪ajax提交#}
+<input type="text">
+<form action="/ajax_json/" method="POST" target="iframe1">
+    <iframe id="ifml" name="iframe1" onload="iframeload();"></iframe>
+    {% csrf_token %}
+    <input type="text" name="username"/>
+    <input type="text" name="email"/>
+    <input type="submit" value="form提交" onclick="sunmit()"/>
+</form>
+<script src="/static/jquery.js"></script>
+
+<script>
+   /* function iframerequest(){
+    var url=$('#url').val();
+    $('#iframe').attr('src',url)*/
+   /* function iframeload(){
+        console.log('233333')
+    }*/
+    function sunmit(){
+        $('#ifml').load(function () {
+            var text=$('#ifml').contents().find('body').text();
+            var obj = JSON.parse(text);
+            console.log(obj)
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css"/>
+    <style>
+        .head {
+            background-color: #DDDDDD;
+            height: 48px;
+            min-width: 1500px;
+        }
+        .head .c1 {
+            margin-top: 0;
+            width: 300px;
+            float: left;
+            color: blue;
+        }
+        .rela {
+            position: relative;
+        }
+        .head .c3 {
+            margin-top: 0;
+            width: 300px;
+            float: left;
+            margin-left: 300px;
+        }
+        @media (max-width: 900px) {
+            .c2 {
+                display: none;
+            }
+        }
+        .cmenu {
+            width: 300px;
+            background-color: #3c3c3c;
+            position: absolute;
+            top: 48px;
+            bottom: 0;
+            left: 0;
+            color: white;
+            z-index: 20;
+            height: 900px;
+        }
+        .b {
+            display: none;
+        }
+        .cmenu span {
+            display: inline-block;
+            width: 300px;
+            height: 48px;
+            padding: 10px 0;
+            margin: 20px 0;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            line-height: 48px;
+        }
+        .cmenu span:hover {
+            display: inline-block;
+            width: 300px;
+            height: 48px;
+            padding: 10px 0;
+            margin: 20px 0;
+            background-color: yellow;
+            color: black;
+            text-align: center;
+            line-height: 48px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comment {
+            background-color: #c1e2b3;
+            position: absolute;
+            padding-left: 300px;
+            top: 48px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            overflow: auto;
+            z-index: 9;
+            min-width: 1200px;
+        }
+        .rela:hover .b {
+            display: block;
+            background-color: blue;
+        }
+        .right{
+            float: right;
+        }
+        .head .logo1{
+            font-size: 20px;
+            display: inline-block;
+            height: 48px;
+            width: 70px;
+            line-height: 28px;
+            padding: 10px;
+        }
+        .logo1:hover{
+            background-color: yellow;
+        }
+        .head .c4{
+            margin-right: 150px;
+            width: 150px;
+            line-height: 48px;
+            padding: 0;
+            position: relative;
+
+        }
+        .head .c4 img{
+            margin-top: 5px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .head .c5{
+            height: 48px;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 45px;
+            cursor: pointer;
+        }
+        .head .logo1 .sele{
+            position: absolute;
+            width: 150px;
+            height: 160px;
+            background-color: #3baae3;
+            z-index: 20;
+            top: 48px;
+            border-radius: 5px;
+        }
+        .head .logo1 .sele a{
+            display: inline-block;
+            width: 147px;
+            height: 40px;
+            margin: 5px 0;
+            background-color: #3baae3;
+            border: 1px solid black;
+            border-radius: 5px;
+            line-height: 40px;
+            color: white;
+            cursor: pointer;
+        }
+        .head .logo1 .sele a:hover{
+            background-color: yellow;
+            color: black;
+        }
+        .c4:hover .b{
+            display: block;
+        }
+        .logo1-1{
+            display: inline-block;
+            line-height: 2px;
+            border-radius: 50%;
+            /*width: 20px;*/
+            /*height: 20px;*/
+            padding: 10px;
+            background-color: red;
+            margin-left: 5px;
+        }
+        .logo1-2{
+            display: inline-block;
+            line-height: 2px;
+            border-radius: 50%;
+            background-color: green;
+            margin-left: 5px;
+            padding: 9px;
+        }
+    </style>
+</head>
+<body style="margin: 0">
+<div class="head">
+    <div class="c1 c2 rela">
+        <h1 class="c1 c2">头部菜单</h1>
+        <div id='i1' class="cmenu b">
+            <span>菜单1</span>
+            <span>菜单2</span>
+            <span>菜单3</span>
+            <span>菜单4</span>
+        </div>
+    </div>
+    <h1 class="c3">后台管理界面</h1>
+    <span class="logo1 right c4"><a><img src="meinv.jpg"/></a><span class="c5">admin</span>
+    <div class="sele b">
+        <a>个人中心</a>
+        <a>会员中心</a>
+        <a>退出登录</a>
+    </div>
+    </span>
+    <span class="logo1 right"><i class="fa fa-envelope-open-o"></i><span class="logo1-1">5</span></span>
+    <span class="logo1 right"><span class="fa fa-flag"></span><span class="logo1-2">9</span></span>
+
+</div>
+<div class="comment">内容页
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+    <p>qwe</p>
+</div>
+
+</body>
+</html>

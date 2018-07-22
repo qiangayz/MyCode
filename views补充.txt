@@ -1,0 +1,111 @@
+views的补充
+请求头一般与请求内容用/r/n/r/n隔开
+请求头包含的内容
+request.Meta(...) 一般在下面几种方法里面取不到的东西需要去原生的头里面去取，比如用户的终端类型
+    request.method
+	request.path_info
+	request.COOKIES
+request.body
+	request.POST
+	request.FILES
+	request.GET
+	request.xxxx.getlist
+	
+	
+return HttpResponse(a)可以返回字符串，也可以返回字节
+return render
+return redirect
+
+设置cookies、设置响应头
+response = HttpResponse(a)
+response['name']='zq'
+response.set_cookie()
+return response
+
+Response Headers【
+HTTP/1.0 200 OK
+Date: Sun, 06 May 2018 03:17:32 GMT
+Server: WSGIServer/0.1 Python/2.7.10
+X-Frame-Options: SAMEORIGIN
+Content-Type: text/html; charset=utf-8
+name: zq
+Content-Length: 505】
+
+Model操作（也可以使用原生的sql语句）
+表内容操作
+	models.tb.objects.create()
+	models.tb.objects.create(**{字典})
+	obj = models.tb()
+	obj.save()
+	models.tb.objects.all()[1:10]
+	models.tb.objects.all()
+	models.tb.objects.update()
+	models.tb.objects.filter(id__in = [1,2,3])
+	models.tb.objects.filter(单下划线id)
+	models.tb.objects.filter(...).delete
+	models.tb.objects.values
+	models.tb.objects.values_list
+	models.tb.objects.get
+	models.tb.objects.filter().update
+	models.tb.objects.filter().first()
+	models.tb.objects.filter(字典)
+	models.tb.objects.filter(...).count()
+	models.tb.objects.filter(双下划线跨表)
+	models.tb.objects.filter(id__gt = 1)
+	models.tb.objects.filter(id__range = [1,5])
+	models.tb.objects.filter(id__lt = 5)
+	models.tb.objects.filter(id__lte = 5)
+	models.tb.objects.filter(id__gte = 5,name='root')
+	models.tb.objects.exclude(id__gte = 5)#不等于
+	
+	多对多：
+		obj.set
+		obj.add(1,2,3)
+		obj.add([1,2,3])
+		obj.remove([1,2,3])
+		obj.clear([1,2,3])
+		obj.all()
+		models.tb.objects.all().order_by('')
+		models.tb.objects.distinct()
+		
+	
+	class A:
+	    name
+		b__set 反向查找B表的数据
+		
+	class B
+	    caption
+		fk = ForignKey(A)
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

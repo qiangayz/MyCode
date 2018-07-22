@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 100;
+        }
+
+        .c2 {
+            position: fixed;
+            top: 35%;
+            left: 35%;
+            width: 400px;
+            height: 300px;
+            background-color: white;
+            z-index: 101;
+        }
+        .c3 {
+            position: fixed;
+            top: 35%;
+            left: 35%;
+            width: 400px;
+            height: 150px;
+            background-color: white;
+            z-index: 101;
+        }
+        .c4 {
+            position: fixed;
+            top: 35%;
+            left: 35%;
+            width: 400px;
+            height: 150px;
+            background-color: white;
+            z-index: 101;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .hide1 {
+            display: block;
+        }
+
+        .head {
+            height: 48px;
+            background-color: #DDDDDD;
+        }
+
+        .leftmenu {
+            position: absolute;
+            left: 0;
+            top: 48px;
+            bottom: 0;
+            width: 300px;
+            background-color: #31272a;
+        }
+
+        .comment {
+            position: absolute;
+            top: 48px;
+            left: 300px;
+            right: 0;
+            bottom: 0;
+            background-color: #c1e2b3;
+            overflow: auto;
+        }
+
+        .leftmenu .submenu {
+            width: 287px;
+            background-color: #900b09;
+            color: white;
+            height: 40px;
+            margin: 30px auto;
+            margin-bottom: 0;
+            font-size: 25px;
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;
+            line-height: 40px;
+            text-align: center;
+
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        .leftmenu .cursor:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+        .leftmenu .submenu1 {
+            width: 297px;
+            border: 1px solid black;
+            height: 40px;
+            background-color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .submenu1:hover {
+            width: 297px;
+            border: 1px solid black;
+            height: 40px;
+            background-color: darkolivegreen;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        .leftmenu .active {
+            background-color: darkolivegreen;
+        }
+
+        td a {
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+    <style>
+        .comment textarea {
+            width: 500px;
+            height: 100px;
+        }
+        ol li p{
+            font-size: 20px;
+            font-weight: normal;
+        }
+    </style>
+    <style>
+        .out{
+            width: 400px;
+            border: 1px solid chocolate;
+            position: absolute;
+            right: 0;
+        }
+        .out #outtitle{
+            width: 400px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            font-size: large;
+            cursor: pointer;
+        }
+        .out #inner{
+            height: 200px;
+            background-color: #900b09;
+        }
+    </style>
+    <style>
+        .comment3{
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+        .comment3 .com31{
+           position: relative;
+            width: 30px;
+        }
+        .comment3 span{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="margin: 0">
+<div class="c1 hide"></div>
+<div class="c2 hide">
+    <fieldset style="margin-top: 50px">
+        <legend>增加信息</legend>
+        <div>
+            <label for="h1">主机：</label>
+            <input id="h1" type="text">
+        </div>
+        <div>
+            <label for="h2">地址：</label>
+            <input id="h2" type="text">
+        </div>
+        <div>
+            <label for="h3">端口：</label>
+            <input id="h3" type="text">
+        </div>
+        <div>
+            <input id="query" type="button" value="确定"/>
+            <input id='can1' type="button" value="取消"/>
+        </div>
+    </fieldset>
+</div>
+<div class="c3 hide">
+    <fieldset>
+        <legend>复制项目</legend>
+        <label for="copyitem">标号</label>
+        <p><input id='copyitem' type="text"></p>
+        <input id="querycopy" type="button" value="确定">
+        <input type="button" value="取消">
+    </fieldset>
+</div>
+<div class="c4 hide">
+    <fieldset>
+        <legend>删除项目</legend>
+        <label for="delitem">标号</label>
+        <p><input id='delitem' type="text"></p>
+        <input id="querydel" type="button" value="确定">
+        <input type="button" value="取消">
+    </fieldset>
+</div>
+<div class="head"></div>
+<div class="leftmenu">
+    <div class="submenu3">
+        <div id='s1' class="submenu cursor">选项1</div>
+        <div b="11" class="submenu1 active">选项11</div>
+        <div b="12" class="submenu1 ">选项12</div>
+        <div b='13' class="submenu1 ">选项13</div>
+    </div>
+    <div class="submenu3">
+        <div class="submenu cursor">选项2</div>
+        <div class="submenu1 hide">选项21</div>
+        <div class="submenu1 hide">选项22</div>
+        <div class="submenu1 hide">选项23</div>
+    </div>
+    <div class=" submenu3">
+        <div class="submenu cursor">选项3</div>
+        <div class="submenu1 hide">选项31</div>
+        <div class="submenu1 hide">选项32</div>
+        <div class="submenu1 hide">选项33</div>
+    </div>
+    <div class="submenu3">
+        <div class="submenu cursor">选项4</div>
+
+        <div class="submenu1 hide">选项41</div>
+        <div class="submenu1 hide">选项42</div>
+        <div class="submenu1 hide">选项43</div>
+    </div>
+</div>
+<div b="11" class="comment">
+    <input id="b1" type="button" value="添加">
+    <input id="b2" type="button" value="全选">
+    <input id="b3" type="button" value="取消">
+    <input id="b4" type="button" value="反选">
+    <table border="1" cellspacing="0" bordercolor="blue">
+        <thead>
+        <tr>
+            <td>选择</td>
+            <td>主机</td>
+            <td>地址</td>
+            <td>端口</td>
+            <td colspan="2" style="text-align: center">操作</td>
+        </tr>
+        </thead>
+        <tbody id="td1">
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>87</td>
+            <td>192.43</td>
+            <td>21</td>
+            <td><a class="edit">编辑</a></td>
+            <td><a class="del">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>88</td>
+            <td>192.43</td>
+            <td>21</td>
+            <td><a class="edit">编辑</a></td>
+            <td><a class="del">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>89</td>
+            <td>192.43</td>
+            <td>21</td>
+            <td><a class="edit">编辑</a></td>
+            <td><a class="del">删除</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div b="12" class="comment hide">
+    <h1>标签的增加</h1>
+    <div>
+        <input id='ape1' type="button" value="添加"/>
+        <input id="del1" type="button" value="删除"/>
+        <input id='copy1' type="button" value="复制"/>
+    </div>
+    <p><span>标题：&nbsp;</span><input id="t1" type="text"></p>
+    <textarea id="t2"></textarea>
+    <ol id="ul" style="width: 500px;font-size: 34px;font-weight: bold; margin-left: 20px;">
+        <li>
+            <div>标题1</div>
+            <p>内容1</p>
+        </li>
+        <li><div>123</div><p>123</p></li>
+    </ol>
+</div>
+<div b="13" class="comment hide">
+    <h1>选项13</h1>
+    <div class="comment3"><div class="com31"><span>赞</span></div></div>
+</div>
+<div id="out" class="out">
+    <div id='outtitle' >点我慢慢拖动</div>
+    <div id='inner' ></div>
+</div>
+<script src="jquery.js"></script>
+<script>
+    $('#b2').click(function () {
+        $('#td1 :checkbox').prop('checked', true)
+    });
+    $('#b3').click(function () {
+        $('#td1 :checkbox').prop('checked', false)
+    });
+    $('#b4').click(function () {
+        var flag = $('#td1 :checkbox').prop('checked') ? false : true;
+        $('#td1 :checkbox').prop('checked', flag)
+
+    });
+    $('#b1').click(function () {
+        $('#h1').val('');
+        $('#h2').val('');
+        $('#h3').val('');
+        $('#h1').removeAttr('disabled');
+        $('.c1 ,.c2').removeClass('hide')
+    });
+    $('#can1').click(function () {
+        $('.c1,.c2').addClass('hide')
+    });
+    /*$('.submenu3').click(function () {
+            if ($(this).children('.submenu1').hasClass('hide1')) {
+                $(this).children('.submenu1').removeClass('hide1')
+            } else {
+                $(this).children('.submenu1').addClass('hide1')
+            }
+        }
+    );*/
+    //    $('.submenu3').mouseout(function () {
+    //        if ($(this).next().mouseover){
+    //            console.log('123')
+    //        }else {
+    //            $(this).next().addClass('hide')
+    //        }
+    //    });
+    //    $('.submenu3').mouseout(function () {
+    //        $(this).addClass('hide')
+    //    });
+    $('.submenu3').mouseover(function () {
+        $(this).children().removeClass('hide')
+    });
+    /*$('.submenu3').mouseout(function () {
+        $(this).children('.submenu1').addClass('hide');
+    });*/
+    $('.edit').click(function () {
+        $('.c1 , .c2').removeClass('hide');
+        var host = $(this).parent().siblings()[1].innerText;
+        var ip = $(this).parent().siblings()[2].innerText;
+        var port = $(this).parent().siblings()[3].innerText;
+        $('#h1').val(host);
+        $('#h1').attr('disabled', 'true');
+        $('#h2').val(ip);
+        $('#h3').val(port);
+    });
+    $(document).on('click', '.edit', function () {
+        $('.c1 , .c2').removeClass('hide');
+        var host = $(this).parent().siblings()[1].innerText;
+        var ip = $(this).parent().siblings()[2].innerText;
+        var port = $(this).parent().siblings()[3].innerText;
+        $('#h1').val(host);
+        $('#h1').attr('disabled', 'true');
+        $('#h2').val(ip);
+        $('#h3').val(port);
+    });
+    $('.del').click(function () {
+        console.log('1231');
+        $(this).parent().parent().remove()
+    });
+    $('#query').click(function () {
+        var host = $('#h1').val();
+        var ip = $('#h2').val();
+        var port = $('#h3').val();
+        if ($('#h1').attr('disabled') == 'disabled') {
+            var a1 = 'td:contains(';
+            var a2 = ')';
+            var a3 = a1 + host + a2;
+            $(a3).next().text(ip).next().text(port);
+            $('.c1,.c2').addClass('hide');
+            $('#h1').val('');
+            $('#h2').val('');
+            $('#h3').val('');
+            $('#h1').removeAttr('disabled');
+            return
+        }
+        var tr = document.createElement('tr');
+        var td0 = document.createElement('td');
+        td0.innerHTML = '<input type="checkbox">';
+        $(tr).append(td0);
+        var td1 = document.createElement('td');
+        td1.innerText = host;
+        $(tr).append(td1);
+        var td2 = document.createElement('td');
+        td2.innerText = ip;
+        $(tr).append(td2);
+        var td3 = document.createElement('td');
+        td3.innerText = port;
+        $(tr).append(td3);
+        var td4 = document.createElement('td');
+        td4.innerHTML = '<a class="edit">编辑</a>';
+        $(tr).append(td4);
+        var td5 = document.createElement('td');
+        td5.innerHTML = '<a class="del">删除</a>';
+        $(tr).append(td5);
+        $('#td1').append(tr);
+        $('#h1').val('');
+        $('#h2').val('');
+        $('#h3').val('');
+        $('.c1,.c2').addClass('hide')
+    });
+    //    $('.submenu').mouseout(function () {
+    //       $(this).next().addClass('hide')
+    //    });
+    $(document).on('click', '.edit', function () {
+        $('.c1 , .c2').removeClass('hide')
+    });
+
+    //     $("body").delegate(".edit","click", function(){
+    //          $('.c1 , .c2').removeClass('hide')
+    //      });
+    $("body").delegate(".del", "click", function () {
+        console.log('1231');
+        $(this).parent().parent().remove()
+    });
+</script>
+<script>
+    $('.submenu1').click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+        var flag = $(this).attr('b');
+        var atr = ".comment[b='" + flag + "']";
+        $(atr).removeClass('hide').siblings('.comment').addClass('hide')
+//        $('.comment').eq($(this).index()-1).removeClass('hide').siblings('.comment').addClass('hide');
+    });
+    $('#ape1').click(function () {
+        var title =$('#t1').val();
+        var data = $('#t2').val();
+        var temp = "<li><hr/><div>"+title+"</div><p>"+data+"</p></li>";
+        $('#ul').append(temp);
+    });
+    $('#copy1').click(function () {
+        $('.c1 , .c3').removeClass('hide');
+    });
+    $('#del1').click(function () {
+        $('.c1 , .c4').removeClass('hide');
+    });
+    $('#querycopy').click(function () {
+        var index1 = $('#copyitem').val();
+        var item = $('ol li').eq(index1-1).clone();
+        $('#ul').append(item);
+        $('.c1 , .c3').addClass('hide');
+    });
+    $('#querydel').click(function () {
+        var index1 = $('#delitem').val();
+        var item = $('ol li').eq(index1-1).remove();
+        $('.c1 , .c3').addClass('hide');
+    });
+    $("input[value='取消']").click(
+        function () {
+            $('.c1, .c2 ,.c3, .c4').addClass('hide')
+        }
+    )
+</script>
+<script>
+    $(function(){
+        $('#outtitle').mouseover(function(){
+            $(this).css('cursor','move');
+        });
+        $("#outtitle").mousedown(function(e){
+            //console.log($(this).offset());
+            var _event = e || window.event;
+            var ord_x = _event.clientX;
+            var ord_y = _event.clientY;
+
+            var parent_left = $(this).parent().offset().left;
+            var parent_top = $(this).parent().offset().top;
+
+            $('#outtitle').on('mousemove', function(e){
+                var _new_event = e || window.event;
+                var new_x = _new_event.clientX;
+                var new_y = _new_event.clientY;
+
+                var x = parent_left + (new_x - ord_x);
+                var y = parent_top + (new_y - ord_y);
+
+                $(this).parent().css('left',x+'px');
+                $(this).parent().css('top',y+'px');
+
+            })
+        });
+        $("#outtitle").mouseup(function(){
+            $("#outtitle").off('mousemove');
+        });
+    })
+</script>
+<script>
+    $('.com31').click(function () {
+        AddFavor(this);
+    });
+    function AddFavor(self) {
+        var fonSize1 = 15;
+        var top = 0;
+        var right = 0;
+        var opacity = 1;
+        var tag = document.createElement('span');
+        $(tag).text('+1');
+        $(tag).css('color','green');
+        $(tag).css('position','absolute');
+        $(tag).css('fontSize',fonSize1+'px');
+        $(tag).css('right',right+'px');
+        $(tag).css('top',top+'px');
+        $(tag).css('opacity',opacity);
+        $(self).append(tag);
+        var obj = setInterval(function () {
+            fonSize1 =fonSize1 + 10;
+            top = top -10;
+            right = right -15;
+            opacity = opacity - 0.1;
+            $(tag).css('fontSize',fonSize1+'px');
+            $(tag).css('right',right+'px');
+            $(tag).css('top',top+'px');
+            $(tag).css('opacity',opacity);
+            if(opacity < 0){
+                clearInterval(obj);
+                $(tag).remove();
+            }
+        } , 70);
+    }
+</script>
+</body>
+</html>

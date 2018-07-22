@@ -1,0 +1,51 @@
+<h3>1、点击验证码更换新的验证码</h3>
+<h3>2、验证码必须是图片形式的</h3>
+<h3>3、验证码实现的流程</h3>
+<pre>服务端：
+        a. session中保存随机验证码，如：87fs
+        b.把验证码写到一个白板里面制作成图片
+        c. 在页面中显示图片
+     客户端：
+        a. 显示图片
+        b. 在cookie中保存sessionid
+        c.输入验证码然后将验证码和session id一起发到服务端</pre>
+<h1>具体实现：</h1>
+使用模块生成图片和验证码
+<pre>
+	f = open('test.png','wb')   #保存到文件
+        img,code =  create_validate_code()
+        img.save(f)
+        f.close()
+</pre>
+<pre>
+	from io import BytesIO
+        f = BytesIO（）     #保存到内存
+        img,code =  create_validate_code()
+        img.save(f,'png')
+</pre>
+<pre>
+	前端网页图片直接访问链接，然后：
+	path(r'checkcodeimg',account.checkcodeimg),
+	def checkcodeimg(request):
+        f = BytesIO()
+        img, code = create_validate_code()
+        img.save(f, 'png')
+        request.session['CheckCode'] = code   #把随机字符串传到session中
+        return HttpResponse(f.getvalue())    #返回图片
+	<img class="onepho" src="/checkcodeimg">
+</pre>
+<pre>验证方法：
+	 checkcode = check_obj.cleaned_data.get('check_code')
+            if checkcode == request.session['CheckCode']:
+                pass
+            else:
+                return render(request, 'login.html', {'check_res': '验证码错误'})
+</pre>
+<h3>点击图片刷新验证码的方法</h3>
+<pre>
+	<script>
+        document.getElementsByClassName('onepho')[0].onclick=function () {
+            this.src = this.src + "?";
+        }
+    </script>
+</pre>

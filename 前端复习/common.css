@@ -1,0 +1,23 @@
+ #i1{
+            background-color: yellow;
+        }
+        .c1{
+            background-color: red;
+        }
+        li{
+            background-color: blue;
+        }
+        div span{
+            background-color: #c1e2b3;
+        }
+        #i2,#i3{
+            background-color: #761c19;
+        }
+        input[type='password']{
+            width: 100px;
+            height: 30px;
+            background-color: #761c19;
+        }
+       .c1[type='zq']{
+           background-color: red;
+       }

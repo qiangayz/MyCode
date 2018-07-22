@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: black;
+            opacity: 0.5;
+            z-index: 10;
+        }
+        .c2{
+            position: fixed;
+            width: 400px;
+            height: 300px;
+            top: 35%;
+            left: 35%;
+            z-index: 11;
+            background-color: white;
+             border: 1px solid red;
+        }
+        .hide{
+            display: none;
+        }
+        .c2 div{
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="添加" onclick="def1()">
+<input type="button" value="全选" onclick="selectall()">
+<input type="button" value="取消" onclick="cancelselect()">
+<input type="button" value="反选" onclick="overselect()">
+<table border="1" cellspacing="0" bordercolor="blue" >
+    <thead>
+    <tr>
+        <td>选择</td>
+        <td>主机</td>
+        <td>ip</td>
+        <td>端口</td>
+    </tr>
+    </thead>
+    <tbody id="td">
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>86</td>
+        <td>192.86</td>
+        <td>21</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>87</td>
+        <td>192.87</td>
+        <td>21</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td>88</td>
+        <td>192.88</td>
+        <td>21</td>
+    </tr>
+    </tbody>
+</table>
+<div  id='d1' class="c1 hide"></div>
+<div id="d2" class="c2 hide">
+    <fieldset style="margin-top: 50px ">
+        <legend>增加信息</legend>
+        <div>
+    <label for="h1">主机：</label>
+    <input id="h1" name='host' type="text"></div>
+        <div>
+    <label for="h2">地址：</label>
+    <input id="h2" name='host' type="text"></div>
+        <div>
+    <label for="h3">端口：</label>
+    <input id="h3" name='host' type="text"></div>
+        <div>
+    <input type="button" value="确定" onclick="def2()">
+    <input type="button" value="取消" onclick="def2()"></div>
+        </fieldset>
+</div>
+<script>
+    var trobj = document.getElementsByTagName('td');
+    var len = trobj.length;
+    for(i=0;i<len;i++){
+        trobj[i].onmouseover=function () {
+            this.style.backgroundColor='blue';
+            this.style.color='white';
+            this.style.cursor='pointer'
+        };
+        trobj[i].onmouseout=function () {
+            this.style.backgroundColor='';
+            this.style.color='black';
+        }
+    }
+    function def1() {
+        document.getElementById('d1').classList.remove('hide');
+        document.getElementById('d2').classList.remove('hide');
+    }
+    function def2() {
+        document.getElementById('d1').classList.add('hide');
+        document.getElementById('d2').classList.add('hide');
+    }
+    function selectall() {
+        var tbobj = document.getElementById('td');
+        var trlist  = tbobj.children;
+        for (var i=0 ; i<trlist.length;i++){
+            var trobj = trlist[i];
+            trobj.children[0].children[0].checked=true
+        }
+    }
+    function cancelselect() {
+        var tbobj = document.getElementById('td');
+        var trlist  = tbobj.children;
+        for (var i=0 ; i<trlist.length;i++){
+            var trobj = trlist[i];
+            trobj.children[0].children[0].checked=false
+        }
+    }
+    function overselect() {
+        var tbobj = document.getElementById('td');
+        var trlist  = tbobj.children;
+        for (var i=0 ; i<trlist.length;i++){
+            var trobj = trlist[i];
+            var flag=trobj.children[0].children[0].checked;
+            if(flag){
+                trobj.children[0].children[0].checked=false
+            }else{
+                trobj.children[0].children[0].checked=true
+            }
+        }
+    }
+</script>
+</body>
+</html>

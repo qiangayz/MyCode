@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 900px;
+            width: 300px;
+            border: 2px solid black;
+            background-color: aqua;
+        }
+        @media (max-width: 1000px) {
+            .div1{
+                display: none;;
+            }
+        }
+    </style>
+</head>
+<body link="red" alink="#6a5acd" vlink="#ffe4c4">
+<form action="http://www.sogou.com/web">
+    <fieldset>
+        <legend>个人信息</legend>
+    <select name="city"  >
+        <option>单选下拉框</option>
+        <option>选项1</option>
+        <option>选项2</option>
+    </select>
+    <label for="city">多选框：</label>
+    <select  id='city' name="city" size="4" multiple="multiple" >
+        <option>多选框</option>
+        <option>选项1</option>
+        <option>选项1</option>
+        <option>选项2</option>
+    </select>
+        <label for="c1">单选框</label>
+        男：<input id="c1" type="radio" name="gender" >
+        女：<input class="c1" type="radio" name="gender" >
+        中性：<input class="c1" type="radio" name="gender" >
+        <p>多选框：</p>
+        篮球：<input type="checkbox" name="favor">
+        足球：<input type="checkbox" name="favor">
+        排球：<input type="checkbox" name="favor">
+        棒球：<input type="checkbox" name="favor">
+        铁球：<input type="checkbox" name="favor">
+        <fieldset>
+            <legend>上传文件</legend>
+        <label for="file">请上传文件</label>
+        <input  id="file" type="file" name="fafafafa">
+        </fieldset>
+    </fieldset>
+</form>
+<a href="http://www.baidu.com">我是外链接</a>
+<a href="#i5">我是内链接1</a>
+<a href="#i4">我是内链接2</a>
+<img src="timge.jpg" alt="这是一个图片" title="111">
+<img src="timge.jpg" alt="这是一个图片" title="111">
+<p>有序的列表</p>
+<ol>
+    <li>选项1</li>
+    <li>选项2</li>
+    <li>选项3</li>
+    <li>选项4</li>
+</ol>
+<p>无序列表</p>
+<ul>
+    <li>选项1</li>
+    <li>选项3</li>
+    <li>选项4</li>
+    <li>选项5</li>
+</ul>
+<dl>
+    <dt>第一个内容</dt>
+    <dd>细节1</dd>
+    <dd>细节3</dd>
+    <dd>细节4</dd>
+    <dt>第二个内容</dt>
+    <dd>细节1</dd>
+    <dd>细节3</dd>
+    <dd>细节4</dd>
+</dl>
+<fieldset>
+    <legend>表格练习</legend>
+    <table border="1">
+        <thead>
+        <tr>
+            <td>序号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>爱好</td>
+            <td>年龄</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>zq</td>
+            <td>n</td>
+            <td>yx</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td colspan="3">1</td>
+            <td>yx</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td rowspan="2">1</td>
+            <td>dj</td>
+            <td>n/</td>
+            <td>yx</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>ww</td>
+            <td>n/</td>
+            <td>hh</td>
+            <td>24</td>
+        </tr>
+        </tbody>
+    </table>
+</fieldset>
+<div  class='div2 div1' id="i1">第一节</div>
+<div class='div2 div1' id="i2">第2节</div>
+<div class='div2 div1' id="i3">第3节</div>
+<div class='div2 div1' id="i4">第4节</div>
+<div class='div2 div1' id="i5">第5节</div>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css"/>
+    <style>
+        .pg-header{
+            height: 48px;
+            background-color: #1d9ad6;
+            color: white;
+            min-width: 1180px;
+            line-height: 48px;
+        }
+        .pg-header .icon{
+            padding: 0px 20px;
+            font-size: 20px;
+        }
+        .pg-header .icon .span{
+            display: inline-block;
+            line-height: 2px;
+            border-radius: 50%;
+            /*width: 20px;*/
+            /*height: 20px;*/
+            padding: 10px;
+            background-color: red;
+        }
+        .pg-header .icon:hover{
+             background-color: #3bae56;
+        }
+        .pg-content{}
+        .pg-footer{}
+        .pg-content .menu{
+              position: absolute;
+              top:48px;
+              left:0;
+              bottom: 0;
+              width: 200px;
+              background-color:red ;
+        }
+        @media (max-width: 1000px) {
+            .c2{
+                display: none;
+            }
+        }
+        .pg-content .content{
+            position: absolute;
+            /*background-color: green;*/
+            top: 48px;
+            right: 0;
+            bottom: 0;
+            left: 200px;
+            min-width: 980px;
+            /*overflow: auto;*/
+            z-index: 10;
+        }
+        .left{
+            float:left;
+        }
+        .right{
+            float: right;
+        }
+        .pg-header .logo{
+            width: 200px;
+            background-color: blue;
+            text-align: center;
+        }
+        .pg-header .user{
+            width: 120px;
+            height: 48px;
+            position: relative;
+            /*background-color: blue;*/
+            margin-right:60px;
+            /*text-align: center;*/
+        }
+        .pg-header .user .pan{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 5px;
+            color: black;
+            border-radius: 5px;
+        }
+        .pg-header .user:hover{
+
+            background-color: white;
+            /*text-align: center;*/
+            border-radius: 5px;
+        }
+        .pg-header .user:hover .b{
+            display: block;
+            /*text-align: center;*/
+        }
+        .pg-header .user .a img {
+            width: 40px;height: 40px;margin-top:5px;border-radius: 50%;
+        }
+        .pg-header .user .b {
+            position: absolute;
+            top: 48px;right: 0;
+            background-color: white;color:black;z-index: 20;
+            border-top: 1px;
+             border-radius: 5px;
+            display: none;
+
+        }
+        .pg-header .user .b .a{
+            display: block;
+            width: 120px;
+            border-top: 1px solid black;
+            height: 30px;
+            line-height: 30px;
+            cursor:pointer;
+        }
+        .pg-header .user .b .a:hover{
+            background-color: blue;
+            color: yellow;
+        }
+
+    </style>
+</head>
+<body style="margin: 0">
+        <div class="pg-header">
+            <div class="logo left">
+                大世界
+            </div>
+            <div class="user right" style="position: relative">
+                <a  class="a" href="#">
+                    <img  src="meinv.jpg" />
+                </a>
+                <div class="b" >
+                    <a class="a">东临碣石</a>
+                    <a class="a">东临碣石</a>
+                </div>
+                <a class="pan">qiangayz</a>
+            </div>
+            <div class="icon right">
+               <i  class="fa fa-envelope-open-o"></i>
+                <span>5</span>
+            </div>
+            <div class="icon right">
+               <i class="fa fa-flag "></i>
+                <span class="span">5</span>
+            </div>
+        </div>
+        <div class="pg-content">
+            <div class="menu left c2">asd</div>
+            <div class="content left" >
+                <div style="background-color: #2f96b4">
+                <p style="margin: 0">asd</p><p>asd</p><p>asd</p><p>asd</p><p>asd</p>
+                <p>asd</p><p>asd</p><p>asd</p><p>asd</p><p>asd</p>
+                <p>asd</p><p>asd</p><p>asd</p><p>asd</p><p>asd</p>
+                <p>asd</p><p>asd</p><p>asd</p><p>asd</p><p>asd</p>
+                <p>asd</p><p>asd</p><p>asd</p><p>asd</p><p>asd</p>
+                <p>asd</p><p>asd</p><p>asd</p><p>asd</p><p>asd</p>
+                <p>asd</p><p>asd</p><p>asd</p><p>asd</p><p>asd</p></div>
+            </div>
+        </div>
+        <div class="pg-footer"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.shortcuts import render
+from django import forms
+from django.forms import fields
+from app01 import models
+
+# Create your views here.
+class UserInfoForm(forms.Form):
+    user = fields.CharField(max_length=32)
+    pwd = fields.CharField(max_length=32)
+    email = fields.EmailField(max_length=32)
+    usertype = fields.ChoiceField(
+        choices=models.UserType.objects.values_list('id', 'caption')
+    )
+    def __init__(self, *args, **kwargs):
+        super(UserInfoForm, self).__init__(*args, **kwargs)
+        self.fields['usertype'].choices = models.UserType.objects.all('id', 'caption')
+
+def index(request):
+    if request.method == 'GET':
+        obj= UserInfoForm()
+        return render(request,'index.html',{'obj':obj})
+    if request.method =='POST':
+        obj = UserInfoForm(request.POST)
+        obj.is_valid()
+        obj.errors
+        models.UserInfo.objects.create(**obj.cleaned_data)
+        #models.UserInfo.objects.filter(id=1).update(**obj.cleaned_data)
+        return  render(request,'index.html',{'obj':obj})

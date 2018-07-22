@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .c1{
+        background-color: lightskyblue;
+    }
+</style>
+<body>
+    <form action="/fm/" method="POST">
+        {% csrf_token %}
+{#   第二种方式     自动生成标签系列#}
+        <p>{{ obj.user.label }}{{ obj.user }}{{ obj.errors.user.0 }}{{ obj.user.help_text }} </p>
+        <p>{{ obj.pwd }} {{ obj.errors.pwd.0 }}</p>
+        <p>{{ obj.email }}{{ obj.errors.email.0 }}</p>
+        <p><input type="submit"  value="提交"> </p>
+        <p>{{ obj.f }} </p>
+        <p>{{ obj.p }} </p>
+        <p>{{ obj.city }} </p>
+        <p>{{ obj.city1 }} </p>
+ <!--       <p>第三种方式，使用obj.as_p</p>
+          {{ obj.as_p }}
+        <p>第四种方式，使用obj.as_ul</p>
+          {{ obj.as_ul }}
+        <p>第四种方式，使用obj.as_table</p>
+        <table>
+          {{ obj.as_table }}
+            </table>                         -->
+    <!--第一种方式失败之后无法再输入框内显示之前输入的信息
+        <p><input type="text" name="user" placeholder="用户名">{{ obj.errors.user.0 }} </p>
+        <p><input type="password" name="pwd" placeholder="密码"> {{ obj.errors.pwd.0 }}</p>
+        <p><input type="text" name="email" placeholder="mail"> {{ obj.errors.email.0 }}</p>
+        <p><input type="submit"  value="提交"> </p>-->
+    </form>
+</body>
+</html>
